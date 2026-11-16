@@ -1,21 +1,48 @@
+import { useNavigate } from 'react-router-dom';
 import LikeButton from '../LikeButton/LikeButton';
 import RatingBadge from '../RatingBadge/RatingBadge';
 import './MovieDetails.css';
 
-function MovieDetails() {
+function MovieDetails({movie}) {
+  const navigate = useNavigate()
+
+  if (!movie) return null
+
+  const {
+    Title,
+    Year,
+    Rated,
+    Runtime,
+    Poster,
+    Genre,
+    Plot,
+    Ratings = [],
+    Director,
+    Writer,
+    Actors,
+    Released,
+    Language,
+    Country,
+    Awards,
+    BoxOffice,
+  } = movie;
+
+  const hasPoster= Poster && Poster !=='N/A'
+
   return (
     <article className="movie-details">
-      <button type="button" className="movie-details__back">
+      <button type="button" className="movie-details__back" onClick={() => navigate(-1)}>
         ← Ко всем фильмам
       </button>
 
       <div className="movie-details__layout">
         <div className="movie-details__poster-col">
+          {hasPoster ? (
           <img
             className="movie-details__poster"
-            src="https://m.media-amazon.com/images/M/MV5BNzY3OWQ5NDktNWQ2OC00ZjdlLThkMmItMDhhNDk3NTFiZGU4XkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg"
-            alt="Joker"
-          />
+            src={Poster}
+            alt={Title}
+          /> )}
         </div>
 
         <div className="movie-details__main">
