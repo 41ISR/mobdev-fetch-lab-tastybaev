@@ -40,6 +40,8 @@
   background-color: var(--color-surface);
   color: var(--color-text-faint);
   font-size: 13px;
+  aspect-ratio: 2 / 3;
+  width: 100%;
 }
 
 .movie-card__type {

@@ -5,7 +5,7 @@ function Header() {
   return (
     <header className="header">
       <div className="container header__inner">
-        <a href="#" className="header__logo">
+        <a href="/" className="header__logo">
           <span className="header__logo-mark">OMDb</span>
           <span className="header__logo-sub">кинокаталог</span>
         </a>

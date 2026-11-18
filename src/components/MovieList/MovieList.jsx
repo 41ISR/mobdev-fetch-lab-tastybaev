@@ -7,7 +7,7 @@ function MovieList({movies}) {
   return (
     <ul className="movie-list">
       {movies.map((movie) =>(
-        <li key={movie.imbID}>
+        <li key={movie.imdbID}>
           <MovieCard movie={movie} />
         </li>
       ))}

@@ -1,6 +1,6 @@
 import './SearchBar.css';
 
-function SearchBar({qeury , onQueryChange, onSubmit}) {
+function SearchBar({query , onQueryChange, onSubmit}) {
   return (
     <form className="search-bar" onSubmit={onSubmit}>
       <span className="search-bar__eyebrow">Найти фильм или сериал</span>
@@ -9,10 +9,10 @@ function SearchBar({qeury , onQueryChange, onSubmit}) {
           type="text"
           className="search-bar__input"
           placeholder="Например: Joker, Interstellar, Dune…"
-          value = {qeury}
+          value = {query}
           onChange={(e) => onQueryChange(e.target.value)}
         />
-        <button type="button" className="search-bar__button">Искать</button>
+        <button type="submit" className="search-bar__button">Искать</button>
       </div>
     </form>
   );

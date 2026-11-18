@@ -10,18 +10,23 @@ function HomePage() {
   const [movies, setMovies] = useState([])
   const [isLoading,setIsLoading] = useState(false)
   const[error,setError] = useState(null)
+ 
   async function handleSearch(event) {
     event.preventDefault()
     if (!query.trim()) return
     setError(null)
     setIsLoading(true)
     try {
-      const apiKey = import.meta.env.VITE_OMDB_API_KEY
-      const response =await fetch(
-         `https://omdbapi.com{apiKey}&s=${encodeURIComponent(query)}`
+      const apiKey = import.meta.env.VITE_OMDB_API_KEY;
+      console.log(
+      'API KEY найден:',
+      Boolean(apiKey)
       )
+      const response = await fetch(
+  `https://www.omdbapi.com/?apikey=${apiKey}&s=${encodeURIComponent(query)}`
+)
       const data =await response.json()
-      
+      console.log('Ответ OMDb:', data)
       if (data.Response === 'False') {
         setError(data.Error)
         setMovies([])
